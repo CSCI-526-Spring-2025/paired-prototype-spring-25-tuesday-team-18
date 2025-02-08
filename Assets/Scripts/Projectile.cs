@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     public void SetTarget(Transform newTarget, Transform shooter)
     {
         target = newTarget;
-        this.shooter = shooter;
+        this.shooter = shooter; // Store the attacker
     }
 
     void Update()
