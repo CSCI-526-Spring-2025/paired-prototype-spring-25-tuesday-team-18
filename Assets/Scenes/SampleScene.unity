@@ -753,6 +753,11 @@ GameObject:
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
+  - component: {fileID: 1186761214}
+  - component: {fileID: 1186761213}
+  m_Layer: 0
+  m_Name: CustomSceneManager
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -777,6 +782,7 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739221686
+--- !u!114 &1186761213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

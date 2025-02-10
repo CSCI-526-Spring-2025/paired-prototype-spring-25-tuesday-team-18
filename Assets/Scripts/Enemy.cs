@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public float speed = 2f;
     private Transform target; // Current target
     private Transform core;   // Core target
+    private GameObject manager; // manage the game state
     private bool isAggroed = false; // Whether the enemy is aggroed
     public int health = 3; // Enemy health
     public int attackDamage = 1; // Melee attack damage
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         core = GameObject.FindGameObjectWithTag("Core").transform;
         target = core; // Initial target is the Core
+        manager = GameObject.FindGameObjectWithTag("Manager");
     }
 
     void Update()
@@ -56,6 +58,7 @@ public class Enemy : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             Destroy(gameObject); // Destroy the enemy when health reaches zero
+            manager.GetComponent<CustomSceneManager>().AddKill();
         }
         else
         {
