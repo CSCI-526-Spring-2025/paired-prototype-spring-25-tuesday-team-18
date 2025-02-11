@@ -5,7 +5,8 @@ public class Health : MonoBehaviour
 {
     // Basic health settings - can be adjusted in Unity Inspector
     public int maxHealth = 5; 
-    private int currentHealth;
+    public int currentHealth;
+    private static GameObject manager; // manage the game state
 
     // Reference to the health bar slider
     public Slider healthSlider;
@@ -14,6 +15,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         // Set initial health and configure the UI slider
+        manager = GameObject.FindGameObjectWithTag("Manager");
         currentHealth = maxHealth;
 
         if (healthSlider != null)
@@ -58,12 +60,13 @@ public class Health : MonoBehaviour
         // Destroy the object if health drops to zero or below
         if (currentHealth <= 0)
         {
-            Die();
+            Die(tag);
         }
     }
 
-    void Die()
+    void Die(string tag)
     {
+        if(tag == "Player" || tag == "Core") manager.GetComponent<CustomSceneManager>().GameOver();
         Destroy(gameObject);
     }
 }

@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public float speed = 2f;
     private Transform target; // Current target
     private Transform core;   // Core target
-    private GameObject manager; // manage the game state
+    private static GameObject manager; // manage the game state
     private bool isAggroed = false; // Whether the enemy is aggroed
     public int health = 3; // Enemy health
     public int attackDamage = 1; // Melee attack damage
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable
         canAttack = false;
         if (target.GetComponent<Health>() != null)
         {
-            target.GetComponent<Health>().TakeDamage(attackDamage);
+            target.GetComponent<Health>().TakeDamage(attackDamage, target.tag);
         }
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
