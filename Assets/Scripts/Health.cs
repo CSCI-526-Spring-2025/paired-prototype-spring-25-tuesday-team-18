@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
     }
 
     // Public method for other scripts to deal damage
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string tag)
     {
         currentHealth -= damage;
 
@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
 
     void Die(string tag)
     {
-        if(tag == "Player" || tag == "Core") manager.GetComponent<CustomSceneManager>().GameOver();
+        //if(tag == "Player" || tag == "Core") manager.GetComponent<CustomSceneManager>().GameOver();
         Destroy(gameObject);
     }
 }
