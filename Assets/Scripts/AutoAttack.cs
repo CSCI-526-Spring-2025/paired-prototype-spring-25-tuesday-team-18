@@ -8,6 +8,7 @@ public class AutoAttack : MonoBehaviour
     public float attackRange = 5f;
     public float attackCooldown = 1f;
     private float lastAttackTime;
+    public int damage = 1;
 
     void Update()
     {
@@ -43,7 +44,7 @@ public class AutoAttack : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         projectile.GetComponent<Projectile>().SetTarget(target, transform);
-        projectile.GetComponent<Projectile>().damage = 1; // damage of bullet
+        projectile.GetComponent<Projectile>().damage = damage; // damage of bullet
     }
 
 }

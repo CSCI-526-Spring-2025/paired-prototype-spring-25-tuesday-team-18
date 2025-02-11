@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: -2012626923977821580}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,6 +208,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6947373763395278133, guid: 209abd1876100d0438ed6a8b26714443, type: 3}
   attackRange: 3
   attackCooldown: 1
+  damage: 1
 --- !u!114 &5999875819943144269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  healthSlider: {fileID: 0}
+  healthBarOffset: {x: 0, y: -0.5, z: 0}
 --- !u!114 &-2012626923977821580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +237,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113147271c1a345b48a5d032126e4615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aInstance: {fileID: 0}

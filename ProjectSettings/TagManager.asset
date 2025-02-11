@@ -9,6 +9,7 @@ TagManager:
   - Manager
   - Hero
   - GameOverUI
+  - Tower
   layers:
   - Default
   - TransparentFX

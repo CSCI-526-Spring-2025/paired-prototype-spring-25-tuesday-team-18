@@ -29,7 +29,7 @@ public class EnemyProjectile : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check what we hit
-        if (other.CompareTag("Player") || other.CompareTag("Core"))
+        if (other.CompareTag("Player") || other.CompareTag("Core") || other.CompareTag("Tower"))
         {
             // Deal damage if we hit player or core
             Health health = other.GetComponent<Health>();
