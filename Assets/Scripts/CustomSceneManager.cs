@@ -70,6 +70,7 @@ public class CustomSceneManager : MonoBehaviour
     }
 
     public void GameOver(){
+        Debug.Log("entering gameover");
         Time.timeScale = 0; // Pause the game
         gameOverUI.SetActive(true); // Show the Game Over UI
     }

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 67992159}
   m_Layer: 0
   m_Name: CustomSceneManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1d072c11e68e942be1bb5fa8ab4bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 2285662205238805651, guid: c29cf93c5451a6449ba9e39ef752d4bd, type: 3}
+  towerPrefab: {fileID: 1589798161331309981, guid: 11e9fd180f4734e849b8a091e17468ce, type: 3}
 --- !u!114 &964829293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2166,6 +2166,7 @@ GameObject:
   - component: {fileID: 1440909381}
   - component: {fileID: 1440909385}
   - component: {fileID: 1440909386}
+  - component: {fileID: 1440909387}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -2295,6 +2296,19 @@ MonoBehaviour:
   currentHealth: 0
   healthSlider: {fileID: 1535458981}
   healthBarOffset: {x: 0, y: -0.5, z: 0}
+--- !u!114 &1440909387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440909380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113147271c1a345b48a5d032126e4615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aInstance: {fileID: 0}
 --- !u!1 &1489627490
 GameObject:
   m_ObjectHideFlags: 0
