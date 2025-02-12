@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Array of different enemy prefabs we can spawn
-    public GameObject[] enemyPrefabs;    // Now we can set multiple enemy types in Unity
-    public Transform spawnPoint;
-    public float spawnInterval = 3f;
+    public GameObject[] enemyPrefabs; // Array of different enemy prefabs
+    public Transform spawnPoint;      // The central spawn position
+    public float spawnInterval = 3f;  // Time interval between enemy spawns
 
     [Range(0, 1)]
-    public float rangedEnemySpawnChance = 0.3f;    // 30% chance to spawn ranged enemy
+    public float rangedEnemySpawnChance = 0.3f; // 30% chance to spawn a ranged enemy
+
+    public float spawnRadius = 2f; // Defines the random spawn radius around spawnPoint
 
     void Start()
     {
@@ -20,24 +21,25 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            // Randomly decide which enemy to spawn
-            GameObject enemyToSpawn;
+            // **Generate a random spawn position within the defined radius**
+            Vector2 randomOffset = Random.insideUnitCircle * spawnRadius; // Generates a random offset inside a circle
+            Vector3 spawnPosition = new Vector3(spawnPoint.position.x + randomOffset.x, spawnPoint.position.y + randomOffset.y, spawnPoint.position.z);
 
-            // Simple random selection using spawn chance
+            // **Randomly select an enemy type to spawn**
+            GameObject enemyToSpawn;
             if (Random.value < rangedEnemySpawnChance)
             {
-                // Spawn ranged enemy (assuming it's the second prefab in array)
-                enemyToSpawn = enemyPrefabs[1];
+                enemyToSpawn = enemyPrefabs[1]; // Spawn a ranged enemy
             }
             else
             {
-                // Spawn regular enemy (assuming it's the first prefab in array)
-                enemyToSpawn = enemyPrefabs[0];
+                enemyToSpawn = enemyPrefabs[0]; // Spawn a melee enemy
             }
 
-            // Spawn the selected enemy
-            Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+            // **Instantiate the enemy at the chosen spawn position**
+            Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
 
+            // **Wait for the next spawn interval**
             yield return new WaitForSeconds(spawnInterval);
         }
     }

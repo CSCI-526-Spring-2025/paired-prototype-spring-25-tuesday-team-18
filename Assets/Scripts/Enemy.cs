@@ -13,12 +13,16 @@ public class Enemy : MonoBehaviour, IDamageable
     public float attackRange = 0.5f; // Melee attack range
     public float attackCooldown = 1f; // Attack cooldown time
     private bool canAttack = true;
-
-    void Start()
+    private Rigidbody2D rb;
+    public float acceleration = 5f;  
+    public float maxSpeed = 2f;          void Start()
     {
         core = GameObject.FindGameObjectWithTag("Core").transform;
         target = core; // Initial target is the Core
         manager = GameObject.FindGameObjectWithTag("Manager");
+
+        rb = GetComponent<Rigidbody2D>();
+        rb.drag = 2f; 
     }
 
     void Update()
@@ -29,6 +33,28 @@ public class Enemy : MonoBehaviour, IDamageable
             TryAttack();
         }
     }
+
+
+    void FixedUpdate()
+    {
+        if (target != null)
+        {
+            
+            rb.velocity = Vector2.zero;
+
+            
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.AddForce(direction * acceleration, ForceMode2D.Force);
+
+            if (rb.velocity.magnitude > maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
+            // TryAttack();
+        }
+    }
+
+
 
     // **Attempt to attack the current target**
     void TryAttack()
