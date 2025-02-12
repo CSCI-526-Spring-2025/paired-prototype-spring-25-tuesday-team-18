@@ -14,7 +14,8 @@ public class LoadSceneByIndex : MonoBehaviour
     public void LoadScene(int sceneIndex)
     {
         Debug.Log("load scene");
+        int maxKill = (sceneIndex == 1) ? 2 : manager.GetComponent<CustomSceneManager>().killLimit;
         if(CustomSceneManager.instance == null) SceneManager.LoadScene(sceneIndex);
-        else manager.GetComponent<CustomSceneManager>().ResetAndLoad(5);
+        else manager.GetComponent<CustomSceneManager>().ResetAndLoad(maxKill+3);
     }
 }
