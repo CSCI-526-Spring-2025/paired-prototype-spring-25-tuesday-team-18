@@ -952,6 +952,7 @@ GameObject:
   - component: {fileID: 640303232}
   - component: {fileID: 640303234}
   - component: {fileID: 640303235}
+  - component: {fileID: 640303236}
   m_Layer: 0
   m_Name: Core
   m_TagString: Core
@@ -1055,6 +1056,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aInstance: {fileID: 0}
+--- !u!114 &640303236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640303231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e889e9889fe498fa0f5170e4902312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &641351827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,6 +2216,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6947373763395278133, guid: 209abd1876100d0438ed6a8b26714443, type: 3}
   attackRange: 3
   attackCooldown: 1
+  damage: 1
 --- !u!50 &1440909382
 Rigidbody2D:
   serializedVersion: 4
