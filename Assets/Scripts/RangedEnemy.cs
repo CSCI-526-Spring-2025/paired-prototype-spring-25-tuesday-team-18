@@ -15,12 +15,16 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     public float attackRange = 5f;
     public float attackCooldown = 2f;
     private bool canAttack = true;
-
+    private Rigidbody2D rb;
+    public float acceleration = 5f;  
+    public float maxSpeed = 2f;   
     void Start()
     {
         // Initialize reference to core
         core = GameObject.FindGameObjectWithTag("Core").transform;
         target = FindClosestTarget(); // Instead of directly targeting core
+        rb = GetComponent<Rigidbody2D>();
+        rb.drag = 2f; 
     }
 
     void Update()
@@ -49,6 +53,25 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
     }
+
+    void FixedUpdate()
+        {
+            if (target != null)
+            {
+                
+                rb.velocity = Vector2.zero;
+
+                
+                Vector2 direction = (target.position - transform.position).normalized;
+                rb.AddForce(direction * acceleration, ForceMode2D.Force);
+
+                if (rb.velocity.magnitude > maxSpeed)
+                {
+                    rb.velocity = rb.velocity.normalized * maxSpeed;
+                }
+                // TryAttack();
+            }
+        }
 
     // New method to find closest target
     Transform FindClosestTarget()
