@@ -14,6 +14,10 @@ public class TowerDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         // Create a preview instance of the tower
         currentTowerPreview = Instantiate(towerPrefab);
+        Destroy(currentTowerPreview.GetComponent<AutoAttack>());
+        Destroy(currentTowerPreview.GetComponent<Health>());
+        Destroy(currentTowerPreview.GetComponent<Rigidbody2D>());
+        Destroy(currentTowerPreview.GetComponent<BoxCollider2D>());
 
         // Make the preview semi-transparent to distinguish it from actual towers
         SpriteRenderer renderer = currentTowerPreview.GetComponent<SpriteRenderer>();
