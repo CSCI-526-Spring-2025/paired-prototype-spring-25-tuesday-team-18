@@ -23,7 +23,7 @@ public class Upgrades : MonoBehaviour
     }
 
     public void UpgradeMaxTowerCount(){
-
+        manager.GetComponent<CustomSceneManager>().maxTowerCount++;
     }
 
     public void UpgradeHeroHP(){

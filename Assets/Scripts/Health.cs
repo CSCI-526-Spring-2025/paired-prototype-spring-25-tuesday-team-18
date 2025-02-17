@@ -67,6 +67,7 @@ public class Health : MonoBehaviour
     void Die(string tag)
     {
         if(tag == "Player" || tag == "Core") manager.GetComponent<CustomSceneManager>().GameOver();
+        if(tag == "Tower") manager.GetComponent<CustomSceneManager>().DestoryTower();
         Destroy(gameObject);
     }
 }

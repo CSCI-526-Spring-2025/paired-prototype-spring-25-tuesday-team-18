@@ -8,10 +8,21 @@ public class TowerDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     // Used to show semi-transparent preview while dragging
     private GameObject currentTowerPreview;
+    private static GameObject manager; // manage the game state
+
+    void Start()
+    {
+        manager = GameObject.FindGameObjectWithTag("Manager");
+    }
 
     // Called when player starts dragging from the UI button
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!manager.GetComponent<CustomSceneManager>().CanAddTower())
+        {
+            return;
+        }
+
         // Create a preview instance of the tower
         currentTowerPreview = Instantiate(towerPrefab);
         Destroy(currentTowerPreview.GetComponent<AutoAttack>());
@@ -55,6 +66,8 @@ public class TowerDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
             // Clean up by destroying the preview
             Destroy(currentTowerPreview);
+
+            manager.GetComponent<CustomSceneManager>().AddTower();
         }
     }
 }

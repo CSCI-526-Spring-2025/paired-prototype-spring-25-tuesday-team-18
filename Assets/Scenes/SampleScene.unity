@@ -154,6 +154,8 @@ MonoBehaviour:
   uiPrefab: {fileID: 0}
   killLimit: 5
   totalKills: 0
+  maxTowerCount: 0
+  curTowerCount: 0
 --- !u!4 &67992160
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,6 +1120,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 641351829}
   spawnInterval: 3
   rangedEnemySpawnChance: 0.3
+  spawnRadius: 2
 --- !u!1 &739221684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1235,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1941227543}
   m_FillRect: {fileID: 1524083370}
   m_HandleRect: {fileID: 1941227541}
@@ -2558,7 +2561,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1178002073}
   m_FillRect: {fileID: 104642648}
   m_HandleRect: {fileID: 1178002072}
@@ -2907,6 +2910,57 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0541687, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1844260904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844260906}
+  - component: {fileID: 1844260905}
+  m_Layer: 0
+  m_Name: Spawner_right_side
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1844260905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844260904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02464c095110bb24bb15499360bcd385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 712027675066443393, guid: 1346f14e8afd73a4580b9bede59d705a, type: 3}
+  - {fileID: 712027675066443393, guid: 64cbde09b560f2e4c9c1a0d757fb4605, type: 3}
+  spawnPoint: {fileID: 1844260906}
+  spawnInterval: 3
+  rangedEnemySpawnChance: 0.3
+  spawnRadius: 2
+--- !u!4 &1844260906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844260904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.66, y: -0.01, z: -1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1941227540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,3 +3139,4 @@ SceneRoots:
   - {fileID: 1718207807}
   - {fileID: 67992160}
   - {fileID: 1124095580}
+  - {fileID: 1844260906}
